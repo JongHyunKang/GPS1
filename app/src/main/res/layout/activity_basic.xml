@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:columnCount="2"
+    android:orientation="horizontal"
+    tools:context="com.example.user.a20170525.Basic">
+
+
+    <Button
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:id="@+id/viewmap"
+        android:layout_gravity="fill"
+        android:text="Maps"
+        android:onClick="mapclick"
+        />
+    <Button
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:id="@+id/kakao"
+        android:layout_gravity="fill"
+        android:text="Profile"
+        android:onClick="profileclick"
+        />
+    <Button
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:id="@+id/chat"
+        android:layout_gravity="fill"
+        android:text="Chat"
+        android:onClick="chatclick"
+        />
+    <Button
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1"
+        android:id="@+id/setting"
+        android:layout_gravity="fill"
+        android:text="Setting"
+        android:onClick="settingclick"
+    />
+
+
+
+</GridLayout>
