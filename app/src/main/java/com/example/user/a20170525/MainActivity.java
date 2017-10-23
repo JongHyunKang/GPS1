@@ -36,11 +36,7 @@ public class MainActivity extends AppCompatActivity
     static final int REQ_PERMISSION = 1000;
     MapFragment mapFr;
     GoogleMap map;
-
     Geocoder gc;
-
-    double lat;
-    double lan;
 
     ArrayList<LatLng> m_latlan;
     GoogleApiClient googleApiClient = null;
@@ -68,44 +64,6 @@ public class MainActivity extends AppCompatActivity
 
         gc = new Geocoder(this, Locale.KOREAN);
 
-//        m_data = new ArrayList<>();
-//        m_data.add("HYBRID");
-//        m_data.add("NORMAL");
-//        m_data.add("SATELLITE");
-//        m_data.add("TERRAIN");
-//        m_data.add("NONE");
-//        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, m_data);
-
-        //spinner.setAdapter(adapter);
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                if (map == null)
-//                    return;
-//                switch (position) {
-//                    case 0:
-//                        map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-//                        break;
-//                    case 1:
-//                        map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-//                        break;
-//                    case 2:
-//                        map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-//                        break;
-//                    case 3:
-//                        map.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
-//                        break;
-//                    case 4:
-//                        map.setMapType(GoogleMap.MAP_TYPE_NONE);
-//                        break;
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
         if (googleApiClient == null) {
             googleApiClient = new GoogleApiClient.Builder(this)
                     .addConnectionCallbacks(this)
@@ -146,7 +104,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void updateMap() {   // 이후 지역구 데이터 설정시 사용될 예정
+    public void updateMap() {       //추후 사용예정
 
 //        final LatLng Loc = new LatLng(latitude, longitude);
 //        map.animateCamera(CameraUpdateFactory.newLatLngZoom(Loc, 16));
@@ -183,6 +141,7 @@ public class MainActivity extends AppCompatActivity
             }
         }
     }
+
 
     @Override
     public void onMapClick(LatLng latLng) {
@@ -244,5 +203,5 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
 }
+

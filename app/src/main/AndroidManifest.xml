@@ -14,9 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -29,15 +27,18 @@
             android:name=".MainService"
             android:enabled="true" />
 
-        <activity android:name=".Basic"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            >
+        <activity
+            android:name=".Basic"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Cacao" />
+        <activity android:name=".Voice" />
+        <activity android:name=".Setting"></activity>
     </application>
 
 </manifest>
