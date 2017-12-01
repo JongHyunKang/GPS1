@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,9 +25,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBKnKrb7hJHAucR6ZHWpHwxFCtAhcnbMYs" />
 
-        <service
-            android:name=".MainService"
-            android:enabled="true" />
 
         <activity
             android:name=".Basic"
@@ -36,9 +35,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Cacao" />
-        <activity android:name=".Voice" />
-        <activity android:name=".Setting"></activity>
+        <activity
+            android:name=".Cacao"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            />
+        <activity
+            android:name=".Voice"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            />
+        <activity
+            android:name=".Setting"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            />
+
+        <receiver android:name=".NewAppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/new_app_widget_info" />
+        </receiver>
     </application>
 
 </manifest>

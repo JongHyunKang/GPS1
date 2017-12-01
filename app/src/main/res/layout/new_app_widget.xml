@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="@dimen/widget_margin">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        >
+
+        <ImageButton
+            android:id="@+id/btn1"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="#66FFCC"
+            android:src="@drawable/mark"
+            android:text="map" />
+
+        <ImageButton
+            android:id="@+id/btn2"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="#66FFCC"
+            android:src="@drawable/peo"
+            android:text="cacao" />
+
+        <ImageButton
+            android:id="@+id/btn3"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="#66FFCC"
+            android:src="@drawable/micc"
+            android:text="voice" />
+
+        <ImageButton
+            android:id="@+id/btn4"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="#66FFCC"
+            android:src="@drawable/set"
+            android:text="setting" />
+
+    </GridLayout>
+
+</LinearLayout>

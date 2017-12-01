@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity
     LocationRequest mLocationRequest;
     PendingResult<LocationSettingsResult> result;
 
+    double latitude;
+    double longitude;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,11 +149,23 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onMapClick(LatLng latLng) {
         m_latlan.add(latLng);
+
+        final LatLng Loc = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
+
+        latitude = mLastLocation.getLatitude();
+        longitude = mLastLocation.getLongitude();
+
+        String lat = Double.toString(latitude);
+        String lon = Double.toString(longitude);
+
+
         map.clear();
         MarkerOptions options = new MarkerOptions();
-        options.position(latLng);
+        options.position(Loc);
         options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+        options.snippet(lat);
         map.addMarker(options);
+
 
     }
 
@@ -189,6 +204,7 @@ public class MainActivity extends AppCompatActivity
     protected void onStart() {
         googleApiClient.connect();
         super.onStart();
+
     }
 
     @Override

@@ -7,40 +7,49 @@
     android:layout_gravity="center"
     android:columnCount="2"
     android:orientation="horizontal"
-    tools:context="com.example.user.a20170525.Basic">
+    tools:context="com.example.user.a20170525.Basic"
+    android:background="#99FFFF"
+    >
 
-
-    <Button
+    <ImageButton
         android:layout_columnWeight="1"
         android:layout_rowWeight="1"
         android:id="@+id/viewmap"
         android:layout_gravity="fill"
         android:text="Maps"
         android:onClick="mapclick"
+        android:src="@drawable/mark"
+        android:background="#99FFFF"
         />
-    <Button
+    <ImageButton
         android:layout_columnWeight="1"
         android:layout_rowWeight="1"
         android:id="@+id/kakao"
         android:layout_gravity="fill"
         android:text="Profile"
         android:onClick="profileclick"
+        android:src="@drawable/peo"
+        android:background="#99FFFF"
         />
-    <Button
+    <ImageButton
         android:layout_columnWeight="1"
         android:layout_rowWeight="1"
         android:id="@+id/chat"
         android:layout_gravity="fill"
         android:text="Chat"
         android:onClick="chatclick"
+        android:src="@drawable/micc"
+        android:background="#99FFFF"
         />
-    <Button
+    <ImageButton
         android:layout_columnWeight="1"
         android:layout_rowWeight="1"
         android:id="@+id/setting"
         android:layout_gravity="fill"
         android:text="Setting"
         android:onClick="settingclick"
+        android:src="@drawable/set"
+        android:background="#99FFFF"
     />
 
 
