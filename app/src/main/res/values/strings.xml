@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">파마</string>
+    <string name="app_name">KONKUKCNC</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
     <string name="rad_prompt">Choose Radius (M)</string>
@@ -16,4 +16,6 @@
         <item>5</item>
         <item>7</item>
     </string-array>
+    <string name="facebook_app_id">455506651513095</string>
+    <string name="fb_login_protocol_scheme">fb455506651513095</string>
 </resources>

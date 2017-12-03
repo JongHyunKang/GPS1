@@ -1,7 +1,9 @@
 package com.example.user.a20170525;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
@@ -24,6 +26,7 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -47,12 +50,15 @@ public class MainActivity extends AppCompatActivity
     double latitude;
     double longitude;
 
+    String radstr, datstr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
         initMap();
+
     }
 
     void initMap() {
@@ -83,6 +89,7 @@ public class MainActivity extends AppCompatActivity
                 new LocationSettingsRequest.Builder().addLocationRequest(mLocationRequest);
         result = LocationServices.SettingsApi.checkLocationSettings(googleApiClient, builder.build());
 
+
     }
 
     @Override
@@ -105,23 +112,22 @@ public class MainActivity extends AppCompatActivity
 
         updateMap();
 
+        Intent intent = getIntent();
+        radstr = intent.getExtras().getString("spinner_rad");
+        datstr = intent.getExtras().getString("spinner_day");
+
+        Double Radstr = Double.parseDouble(radstr);
+        Double Datstr = Double.parseDouble(datstr);
+
+        latitude = intent.getExtras().getDouble("lat");
+        longitude = intent.getExtras().getDouble("lon");
+
+        map.addCircle(new CircleOptions().center(new LatLng(latitude, longitude)).radius(Radstr).strokeColor(Color.rgb(0,50,100)).fillColor(Color.argb(20,50,0,255)));
+
+
     }
 
-    public void updateMap() {       //추후 사용예정
-
-//        final LatLng Loc = new LatLng(latitude, longitude);
-//        map.animateCamera(CameraUpdateFactory.newLatLngZoom(Loc, 16));
-//
-//        MarkerOptions options = new MarkerOptions();
-//        options.position(Loc);
-//        options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-//        options.title(placeName);
-//        options.snippet(placeName);
-//
-//        map.addMarker(options);
-
-        // Marker mk1 = map.addMarker(options);
-        //mk1.showInfoWindow();
+    public void updateMap() {
 
     }
 
@@ -148,24 +154,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onMapClick(LatLng latLng) {
-        m_latlan.add(latLng);
-
-        final LatLng Loc = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
-
-        latitude = mLastLocation.getLatitude();
-        longitude = mLastLocation.getLongitude();
-
-        String lat = Double.toString(latitude);
-        String lon = Double.toString(longitude);
-
-
-        map.clear();
-        MarkerOptions options = new MarkerOptions();
-        options.position(Loc);
-        options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-        options.snippet(lat);
-        map.addMarker(options);
-
 
     }
 
