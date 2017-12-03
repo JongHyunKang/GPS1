@@ -2,18 +2,18 @@
     <string name="app_name">파마</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
-    <string name="rad_prompt">반경을선택하세요.</string>
+    <string name="rad_prompt">Choose Radius (M)</string>
     <string-array name="rad_arrays">
-        <item>100M</item>
-        <item>300M</item>
-        <item>500M</item>
-        <item>1000M</item>
+        <item>100</item>
+        <item>300</item>
+        <item>500</item>
+        <item>1000</item>
     </string-array>
-    <string name="day_prompt">기간을선택하세요.</string>
+    <string name="day_prompt">Choose Day</string>
     <string-array name="day_arrays">
-        <item>1일</item>
-        <item>3일</item>
-        <item>5일</item>
-        <item>7일</item>
+        <item>1</item>
+        <item>3</item>
+        <item>5</item>
+        <item>7</item>
     </string-array>
 </resources>
