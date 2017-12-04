@@ -12,10 +12,10 @@ public class Basic extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basic);
-        ImageButton bt1 = (ImageButton)findViewById(R.id.viewmap);
-        ImageButton bt2 = (ImageButton)findViewById(R.id.kakao);
-        ImageButton bt3 = (ImageButton)findViewById(R.id.chat);
-        ImageButton bt4 = (ImageButton)findViewById(R.id.setting);
+        ImageButton bt1 = findViewById(R.id.viewmap);
+        ImageButton bt2 = findViewById(R.id.kakao);
+        ImageButton bt3 = findViewById(R.id.chat);
+        ImageButton bt4 = findViewById(R.id.setting);
 
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override

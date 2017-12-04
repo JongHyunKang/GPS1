@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity
         datstr = intent.getExtras().getString("spinner_day");
 
         Double Radstr = Double.parseDouble(radstr);
+
         Double Datstr = Double.parseDouble(datstr);
 
         latitude = intent.getExtras().getDouble("lat");

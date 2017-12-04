@@ -5,12 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.user.a20170525.facebook">
+    tools:context="com.example.user.a20170525.login">
 
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/buttonId"
+    <Button
+        android:id="@+id/facebook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"/>
+        android:text="페북"
+        />
+    <Button
+        android:id="@+id/kakao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="카카오"
+        />
 
 </LinearLayout>
