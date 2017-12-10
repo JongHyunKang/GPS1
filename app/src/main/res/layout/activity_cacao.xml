@@ -7,10 +7,17 @@
     tools:context="com.example.user.a20170525.Cacao">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="카카오~~~~"
 
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="테스트버튼"
+        android:onClick="shareKakao"
         />
 
 </LinearLayout>

@@ -54,6 +54,8 @@ public class Setting extends AppCompatActivity implements OnMapReadyCallback,Act
     LocationRequest mLocationRequest;
     PendingResult<LocationSettingsResult> result;
 
+    String lat, lon;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +75,9 @@ public class Setting extends AppCompatActivity implements OnMapReadyCallback,Act
                 Intent intent = new Intent(Setting.this, MainActivity.class);
                 intent.putExtra("spinner_rad", spin1.getSelectedItem().toString());
                 intent.putExtra("spinner_day", spin2.getSelectedItem().toString());
+                intent.putExtra("lat", lat);
+                intent.putExtra("lon", lon);
+                startActivity(intent);
             }
         });
 
@@ -165,12 +170,9 @@ public class Setting extends AppCompatActivity implements OnMapReadyCallback,Act
         options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
         map.addMarker(options);
 
-        String lat = String.valueOf(mlatlng.latitude);
-        String lon = String.valueOf(mlatlng.longitude);
+        lat = String.valueOf(mlatlng.latitude);
+        lon = String.valueOf(mlatlng.longitude);
 
-        Intent intent = new Intent(Setting.this, MainActivity.class);
-        intent.putExtra("lat", lat);
-        intent.putExtra("lon", lon);
 
     }
 

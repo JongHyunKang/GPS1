@@ -5,7 +5,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,7 +31,18 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Cacao"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="@string/kakao_scheme"
+                    android:host="@string/kakaolink_host"/>
+
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".Voice"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -52,7 +65,7 @@
             android:value="@string/facebook_app_id" />
         <meta-data
             android:name="com.kakao.sdk.AppKey"
-            android:value="9e44b975e8546076c30f09781b29dfc9"
+            android:value="@string/kakao_app_key"
             />
 
         <activity

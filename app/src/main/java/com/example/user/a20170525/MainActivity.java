@@ -1,11 +1,14 @@
 package com.example.user.a20170525;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -47,10 +50,14 @@ public class MainActivity extends AppCompatActivity
     LocationRequest mLocationRequest;
     PendingResult<LocationSettingsResult> result;
 
-    double latitude;
-    double longitude;
+    String latitude;
+    String longitude;
 
     String radstr, datstr;
+
+    Double Lat, Lon;
+    Double Lat2, Lon2;
+    String distance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +65,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         init();
         initMap();
-
     }
 
     void initMap() {
@@ -112,21 +118,9 @@ public class MainActivity extends AppCompatActivity
 
         updateMap();
 
-        Intent intent = getIntent();
-        radstr = intent.getExtras().getString("spinner_rad");
-        datstr = intent.getExtras().getString("spinner_day");
-
-        Double Radstr = Double.parseDouble(radstr);
-
-        Double Datstr = Double.parseDouble(datstr);
-
-        latitude = intent.getExtras().getDouble("lat");
-        longitude = intent.getExtras().getDouble("lon");
-
-        map.addCircle(new CircleOptions().center(new LatLng(latitude, longitude)).radius(Radstr).strokeColor(Color.rgb(0,50,100)).fillColor(Color.argb(20,50,0,255)));
-
 
     }
+
 
     public void updateMap() {
 
@@ -172,10 +166,42 @@ public class MainActivity extends AppCompatActivity
             return;
         }
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
+        Intent intent = getIntent();
+        radstr = intent.getExtras().getString("spinner_rad");
+        datstr = intent.getExtras().getString("spinner_day");
+        latitude = intent.getExtras().getString("lat");
+        longitude = intent.getExtras().getString("lon");
+
+        Log.d("Lat", latitude);
+        Log.d("Lon", longitude);
+
+        Lat = Double.parseDouble(latitude);
+        Lon = Double.parseDouble(longitude);
+        Lat2 = mLastLocation.getLatitude();
+        Lon2 = mLastLocation.getLongitude();
+
+        Double Radstr = Double.parseDouble(radstr);
+        //Double Datstr = Double.parseDouble(datstr);
+
+        Location locationA = new Location("pointA");
+        locationA.setLatitude(Lat);
+        locationA.setLongitude(Lon);
+
+        Location locationB = new Location("pointB");
+        locationB.setLatitude(Lat2);
+        locationB.setLongitude(Lon2);
+
+        distance = Double.toString(locationA.distanceTo(locationB));
+
+        Log.i("거리: ", String.valueOf(distance));
+
+        map.addCircle(new CircleOptions().center(new LatLng(Lat, Lon)).radius(Radstr).strokeColor(Color.rgb(0, 50, 100)).fillColor(Color.argb(20, 50, 0, 255)));
         if (mLastLocation != null) {
             Log.i("Location", (String.valueOf("LastLocation" +
-                    mLastLocation.getLatitude() + "::" + mLastLocation.getLongitude())));
+                    Lat2 + "::" + Lon2)));
         }
+
+
     }
 
     @Override
@@ -202,11 +228,10 @@ public class MainActivity extends AppCompatActivity
         super.onStop();
     }
 
+
     @Override
     public void onLocationChanged(Location location) {
 
     }
-
-
 }
 
