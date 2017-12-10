@@ -39,6 +39,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity
         implements OnMapReadyCallback, ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnMapClickListener,
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+
     static final int REQ_PERMISSION = 1000;
     MapFragment mapFr;
     GoogleMap map;
@@ -70,7 +71,6 @@ public class MainActivity extends AppCompatActivity
     void initMap() {
         mapFr = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFr.getMapAsync(this);
-
     }
 
     void init() {
@@ -88,8 +88,8 @@ public class MainActivity extends AppCompatActivity
         }
         mLocationRequest = LocationRequest.create()
                 .setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY)
-                .setInterval(10000)
-                .setFastestInterval(5000)
+                .setInterval(300000)
+                .setFastestInterval(300000)
                 .setSmallestDisplacement(30);
         LocationSettingsRequest.Builder builder =
                 new LocationSettingsRequest.Builder().addLocationRequest(mLocationRequest);
@@ -117,7 +117,6 @@ public class MainActivity extends AppCompatActivity
         uiSettings.setZoomControlsEnabled(true);
 
         updateMap();
-
 
     }
 
@@ -181,7 +180,7 @@ public class MainActivity extends AppCompatActivity
         Lon2 = mLastLocation.getLongitude();
 
         Double Radstr = Double.parseDouble(radstr);
-        //Double Datstr = Double.parseDouble(datstr);
+        Double Datstr = Double.parseDouble(datstr);
 
         Location locationA = new Location("pointA");
         locationA.setLatitude(Lat);
@@ -201,12 +200,10 @@ public class MainActivity extends AppCompatActivity
                     Lat2 + "::" + Lon2)));
         }
 
-
     }
 
     @Override
     public void onConnectionSuspended(int i) {
-
 
     }
 

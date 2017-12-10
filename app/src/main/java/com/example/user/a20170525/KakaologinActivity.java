@@ -34,8 +34,6 @@ public class KakaologinActivity extends AppCompatActivity {
             startActivity(intent);
         }
         //parse();
-
-
     }
     public void parse(){
         mWebView.setWebViewClient(new WebViewClient(){

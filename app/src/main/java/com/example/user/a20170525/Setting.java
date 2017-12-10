@@ -56,7 +56,6 @@ public class Setting extends AppCompatActivity implements OnMapReadyCallback,Act
 
     String lat, lon;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +85,6 @@ public class Setting extends AppCompatActivity implements OnMapReadyCallback,Act
     void initMap() {
         mapFr = (MapFragment) getFragmentManager().findFragmentById(R.id.map1);
         mapFr.getMapAsync(this);
-
     }
 
     void init(){
@@ -172,7 +170,6 @@ public class Setting extends AppCompatActivity implements OnMapReadyCallback,Act
 
         lat = String.valueOf(mlatlng.latitude);
         lon = String.valueOf(mlatlng.longitude);
-
 
     }
 
