@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.renderscript.ScriptGroup;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.RemoteViews;
@@ -22,7 +23,7 @@ import java.net.URL;
 public class NewAppWidget extends AppWidgetProvider {
 
     String image_url = "http://k.kakaocdn.net/dn/IAfpN/btqiLcoFI3n/wJV2jqjiGWKyIjuEyB5dB1/profile_640x640s.jpg";
-
+    static Bitmap bitmap;
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
 
@@ -54,13 +55,39 @@ public class NewAppWidget extends AppWidgetProvider {
 
             appWidgetManager.updateAppWidget(appWidgetIds[i], views);
 
-
-
         }
+        bitmap = getBitmapFromURL(image_url);
         RemoteViews updateViews = new RemoteViews(context.getPackageName(),R.id.btn2);
-        new ILT(image_url,updateViews).execute();
-        //updateViews.setBitmap(image_url);
+        //updateViews.setImageViewResource(R.id.btn2,R.drawable.mark);
+        //new ILT(image_url,updateViews).execute();
+
+        updateViews.setImageViewBitmap(R.id.btn2,bitmap);
         //updateViews.setImageViewBitmap(R.id.btn2,);
+    }
+
+    private Bitmap getBitmapFromURL(String src){
+        URL url = null;
+        InputStream input = null;
+        HttpURLConnection connection = null;
+        Bitmap myBitmap = null;
+        try{
+            url = new URL(src);
+            connection = (HttpURLConnection)url.openConnection();
+            connection.setDoInput(true);
+            connection.connect();
+            input = connection.getInputStream();
+            myBitmap = BitmapFactory.decodeStream(input);
+
+        }catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }finally {
+            if(connection!=null){
+                connection.disconnect();
+            }
+            return myBitmap;
+        }
+
     }
 
     @Override

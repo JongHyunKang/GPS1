@@ -55,6 +55,7 @@ public class Setting extends AppCompatActivity implements OnMapReadyCallback,Act
     PendingResult<LocationSettingsResult> result;
 
     String lat, lon;
+    String name, number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,13 @@ public class Setting extends AppCompatActivity implements OnMapReadyCallback,Act
         final Spinner spin1 = findViewById(R.id.rad);
         final Spinner spin2 = findViewById(R.id.day);
 
+//        Intent intent = getIntent();
+//        name = intent.getExtras().getString("name");
+//        number = intent.getExtras().getString("number");
+//
+//        Log.d("번호", number);
+//        Log.d("이름", name);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +84,8 @@ public class Setting extends AppCompatActivity implements OnMapReadyCallback,Act
                 intent.putExtra("spinner_day", spin2.getSelectedItem().toString());
                 intent.putExtra("lat", lat);
                 intent.putExtra("lon", lon);
+//                intent.putExtra("name1", name);
+//                intent.putExtra("nummber1", number);
                 startActivity(intent);
             }
         });

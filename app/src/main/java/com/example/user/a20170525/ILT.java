@@ -44,6 +44,7 @@ public class ILT extends AsyncTask<Void, Void, Bitmap> {
 
         super.onPostExecute(bitmap);
         //imageButton.setImageBitmap(bitmap);
+
         remoteViews.setImageViewBitmap(R.id.btn2,bitmap);
     }
 }

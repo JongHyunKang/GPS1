@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity
     Double Lat2, Lon2;
     String distance;
 
-    String name, number;
+    String name1, number1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         init();
         initMap();
+
     }
 
     void initMap() {
@@ -171,13 +172,14 @@ public class MainActivity extends AppCompatActivity
         datstr = intent.getExtras().getString("spinner_day");
         latitude = intent.getExtras().getString("lat");
         longitude = intent.getExtras().getString("lon");
-        name = intent.getExtras().getString("name");
-        number = intent.getExtras().getString("number");
+
+        name1 = Voice.name1;
+        number1 = Voice.number1;
 
         Log.d("Lat", latitude);
         Log.d("Lon", longitude);
-        Log.d("number", number);
-        Log.d("name", name);
+        Log.d("num", number1);
+        Log.d("name", name1);
 
         Lat = Double.parseDouble(latitude);
         Lon = Double.parseDouble(longitude);
@@ -197,7 +199,13 @@ public class MainActivity extends AppCompatActivity
 
         distance = Double.toString(locationA.distanceTo(locationB));
 
+        Float Distance = locationA.distanceTo(locationB);
+
         Log.i("거리: ", String.valueOf(distance));
+        if(Distance>Radstr){
+            Messenger messenger = new Messenger(getApplicationContext());
+            messenger.sendMessageTo(number1,"범위이탈");
+        }
 
         map.addCircle(new CircleOptions().center(new LatLng(Lat, Lon)).radius(Radstr).strokeColor(Color.rgb(0, 50, 100)).fillColor(Color.argb(20, 50, 0, 255)));
         if (mLastLocation != null) {

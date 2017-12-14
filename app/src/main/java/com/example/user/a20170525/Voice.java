@@ -14,8 +14,8 @@ public class Voice extends AppCompatActivity {
     Button btn;
     TextView tv1, tv2;
 
-    String name;
-    String number;
+    static String name1;
+    static String number1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +33,16 @@ public class Voice extends AppCompatActivity {
                     new String[]{ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
                             ContactsContract.CommonDataKinds.Phone.NUMBER},null,null,null);
             cursor.moveToFirst();
-            name = cursor.getString(0);
-            number = cursor.getString(1);
+            name1 = cursor.getString(0);
+            number1 = cursor.getString(1);
 
-            tv1.setText(name);
-            tv2.setText(number);
+            tv1.setText(name1);
+            tv2.setText(number1);
 
-            Intent intent1 = new Intent(Voice.this, MainActivity.class);
-            intent1.putExtra("name", name);
-            intent1.putExtra("number", number);
+//            Intent intent1 = new Intent(Voice.this, Setting.class);
+//            intent1.putExtra("name", name1);
+//            intent1.putExtra("number", number1);
+//            startActivity(intent1);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
