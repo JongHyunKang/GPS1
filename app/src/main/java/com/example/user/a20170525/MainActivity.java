@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity
     Double Lat2, Lon2;
     String distance;
 
+    String name, number;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,8 +90,8 @@ public class MainActivity extends AppCompatActivity
         }
         mLocationRequest = LocationRequest.create()
                 .setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY)
-                .setInterval(300000)
-                .setFastestInterval(300000)
+                .setInterval(10000)
+                .setFastestInterval(5000)
                 .setSmallestDisplacement(30);
         LocationSettingsRequest.Builder builder =
                 new LocationSettingsRequest.Builder().addLocationRequest(mLocationRequest);
@@ -145,7 +147,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-
     @Override
     public void onMapClick(LatLng latLng) {
 
@@ -170,9 +171,13 @@ public class MainActivity extends AppCompatActivity
         datstr = intent.getExtras().getString("spinner_day");
         latitude = intent.getExtras().getString("lat");
         longitude = intent.getExtras().getString("lon");
+        name = intent.getExtras().getString("name");
+        number = intent.getExtras().getString("number");
 
         Log.d("Lat", latitude);
         Log.d("Lon", longitude);
+        Log.d("number", number);
+        Log.d("name", name);
 
         Lat = Double.parseDouble(latitude);
         Lon = Double.parseDouble(longitude);

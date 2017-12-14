@@ -23,12 +23,13 @@ public class Cacao extends AppCompatActivity {
             final KakaoLink kakaoLink = KakaoLink.getKakaoLink(this);
             final KakaoTalkLinkMessageBuilder kakaoTalkLinkMessageBuilder = kakaoLink.createKakaoTalkLinkMessageBuilder();
 
-            kakaoTalkLinkMessageBuilder.addText("테스트 카카오링크");
+            //kakaoTalkLinkMessageBuilder.addText("테스트 카카오링크");
 
-            String url = "http://postfiles1.naver.net/MjAxNzEyMDVfODUg/MDAxNTEyNDQ3OTc1NzQw.JprOIr31rpwhUZ_cxvm--H-5g54of2pXqkL_FdGvHW8g.lWxUjjtKBMr3Bdlo_Z5cD7FCsOioaugZAaDIVayOaFwg.PNG.zappyboy3/sample.png?type=w580";
-            kakaoTalkLinkMessageBuilder.addImage(url, 512, 512 );
-
-            kakaoTalkLinkMessageBuilder.addAppButton("앱 실행");
+            String url = "https://kauth.kakao.com/oauth/authorize?client_id=c03758c161b681dd97c2bab13376ce41&redirect_uri=http://172.16.49.123:8080/WearisMomServer/catch&response_type=code                                ";
+            //kakaoTalkLinkMessageBuilder.addImage(url, 512, 512 );
+            kakaoTalkLinkMessageBuilder.addText(url);
+            //kakaoTalkLinkMessageBuilder.addWebLink(url);
+            kakaoTalkLinkMessageBuilder.addAppButton("Go to App");
 
             kakaoLink.sendMessage(kakaoTalkLinkMessageBuilder, this);
 

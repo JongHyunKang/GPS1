@@ -41,6 +41,7 @@
                     android:host="@string/kakaolink_host"/>
 
             </intent-filter>
+
         </activity>
 
         <activity

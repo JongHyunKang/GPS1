@@ -20,15 +20,16 @@
         android:src="@drawable/mark"
         android:background="#99FFFF"
         />
+
     <ImageButton
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
         android:id="@+id/kakao"
+        android:layout_columnWeight="1"
         android:layout_gravity="fill"
-        android:text="Profile"
-        android:src="@drawable/peo"
+        android:layout_rowWeight="1"
         android:background="#99FFFF"
-        />
+        android:scaleType="fitXY"
+        android:src="@drawable/peo"
+        android:text="Profile" />
     <ImageButton
         android:layout_columnWeight="1"
         android:layout_rowWeight="1"
@@ -56,6 +57,13 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="3"
+        android:text="TextView" />
 
 
 </GridLayout>

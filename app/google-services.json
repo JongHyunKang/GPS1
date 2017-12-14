@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "154355788286",
+    "firebase_url": "https://wearismom.firebaseio.com",
+    "project_id": "wearismom",
+    "storage_bucket": "wearismom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154355788286:android:1cbc676d22e5fcf4",
+        "android_client_info": {
+          "package_name": "com.example.user.a20170525"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154355788286-sjtithg0oou9i14j8etqibna0bdouhbh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.user.a20170525",
+            "certificate_hash": "2e26cb611fc5a1f9a2d5689c6564c57d93d8e703"
+          }
+        },
+        {
+          "client_id": "154355788286-mccmrqp7pas5attmuc9u5l8fbcsrsms0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAidBWVkws18wFO8aXAOBJg7wM2Y1MZsZg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154355788286-mccmrqp7pas5attmuc9u5l8fbcsrsms0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
